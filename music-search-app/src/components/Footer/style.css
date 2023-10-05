@@ -1,0 +1,17 @@
+/* Footer */
+.footer-wrapper {
+  display: flex;
+  flex-direction: column;
+  column-gap: 20px;
+  color: #c9c9c9;
+  font-size: 0.8rem;
+}
+.social-icons {
+  display: flex;
+  justify-content: center;
+}
+.social-icons > i {
+  font-size: 1rem;
+  margin: 0 10px;
+}
+
