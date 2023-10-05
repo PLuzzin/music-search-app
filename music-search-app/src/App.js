@@ -1,3 +1,5 @@
+import Footer from './components/Footer';
+
 // import logo from './logo.svg';
 import "./assets/css/mdb.dark.min.css";
 import "./App.css";
@@ -30,7 +32,7 @@ function App() {
           <button type="button" className="btn btn-link">
             Sign up
           </button>
-          <button type="button" className="btn btn-link">
+          <button type="button" className="btn btn-primary">
             Log in
           </button>
         </div>
@@ -90,13 +92,7 @@ function App() {
       </article>
 
       <footer>
-          <div className="card-wrapper">
-              <div className="footer-wrapper">
-                  <div className="text-center">
-                      © 2023 Copyright - BoomBox
-                  </div>
-              </div>
-          </div>
+          <Footer />
       </footer>
     </main>
   );
