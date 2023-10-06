@@ -1,0 +1,45 @@
+/* Sidebar */
+.card-wrapper {
+  padding: 20px;
+  background-color: #191919;
+}
+.left-nav > ul {
+  list-style-type: none;
+  padding-inline-start: 0;
+  margin-bottom: 0;
+}
+.favourites-wrapper {
+  font-size: 0.8rem;
+  padding: 10px 20px;
+}
+.sidebar-header{
+  display: flex;
+  justify-content:flex-end;
+}
+.sidebarM {
+  overflow-x: hidden;
+  position: absolute;
+  width: 280px;
+  height: 100vh;
+  left: -280px;
+  top: 0;
+  background-color: #000;
+  z-index: 9999;
+  box-shadow: -5px 0px 10px #4a4b4b;
+}
+.show-sidebarM {
+  left: calc(100% - 280px);
+  animation-name: showSidebarM;
+  animation-duration: 0.3s;
+}
+@keyframes showSidebarM {
+  from {opacity: 0; transform: translateX(500px);}
+  to {opacity: 1; transform: translateX(0);}
+}
+
+.burger-menu{
+  position: absolute;
+  left: calc(100% - 72px);
+  top: 1%;
+  cursor: pointer;
+}

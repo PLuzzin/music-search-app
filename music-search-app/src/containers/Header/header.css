@@ -1,0 +1,25 @@
+/* header */
+.header-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #191919;
+}
+.search-wrapper {
+  max-width: 400px;
+}
+.login-btn-wrapper {
+  display: flex;
+  align-items: center;
+}
+.header-wrapper > a {
+  font-size: 22px;
+  color: #fff;
+}
+
+@media(max-width: 960px){
+  .btn-signup {
+    display: none;
+  }
+}

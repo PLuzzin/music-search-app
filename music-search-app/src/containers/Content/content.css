@@ -1,0 +1,110 @@
+/* Content */
+.content-title-wrapper {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.grid-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+}
+.grid-wrapper {
+  display: grid;
+  margin: 0 auto;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 200px));
+  grid-auto-rows: minmax(150px, auto);
+  grid-gap: 15px;
+}
+.grid-item {
+  background-color: #232323;
+  color: #fff;
+  border-radius: 5px;
+  padding: 20px;
+}
+.grid-item > .img-align {
+  display: flex;
+  justify-content: center;
+}
+.grid-item > .img-align > img {
+  display: block;
+  position: relative;
+  width: 100px;
+  height: 100px;
+  border-radius: 2px;
+}
+.grid-item > .img-align > .play-song {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 100px;
+  font-size: 2rem;
+  border-radius: 2px;
+  background-color: #000000;
+  position: absolute;
+  opacity: 0;
+  z-index: 2;
+  cursor: pointer;
+  transition: opacity 0.3s;
+}
+.grid-item > .img-align > .play-song:hover {
+  opacity: 0.7;
+}
+.grid-item > .title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
+.grid-item > .title > .text-h1 {
+  font-size: 1rem!important;
+  max-width: 140px;
+}
+.grid-item > .title > .heart-empty {
+  width:17px; 
+  height:17px; 
+  /* background-image:url('../images/heart-outline-1.svg');
+  background-repeat: no-repeat; */
+  cursor: pointer;
+}
+.grid-item > .title > .heart-full {
+  width:17px; 
+  height:17px; 
+  /* background-image:url('../images/heart-bold-1.svg');
+  background-repeat: no-repeat; */
+  cursor: pointer;
+}
+.grid-item > .description {
+  display: flex;
+  flex-direction: column;
+  color: #b4b4b4;
+  font-size: 0.75rem;
+  margin-top: 5px;
+}
+.grid-item > .description > .track-name {
+  color: #ffffff;
+  font-size: 0.8rem;
+}
+.grid-no-results {
+  display: flex;
+  flex-direction: column;
+  justify-content:center;
+  align-items: center;
+  background-color: #232323;
+  color: #fff;
+  font-size: 0.9rem;
+  border-radius: 5px;
+  padding: 20px;
+  margin-bottom: 30px;
+  animation-name: showitemY;
+  animation-duration: 0.2s;
+  animation-timing-function: ease-in;
+  /* transition: ease-in 0.2s; */
+}
+.pagination-wrapper {
+  display: flex;
+  justify-content:flex-end;
+  align-items: center;
+  font-size: 0.8rem;
+  margin-top: 20px;
+}
