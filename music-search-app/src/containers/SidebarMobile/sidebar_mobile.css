@@ -1,22 +1,18 @@
-/* Sidebar */
+.burger-menu{
+  position: absolute;
+  left: calc(100% - 72px);
+  top: 1%;
+  cursor: pointer;
+}
 .card-wrapper {
   padding: 20px;
   background-color: #191919;
-}
-.left-nav > ul {
-  list-style-type: none;
-  padding-inline-start: 0;
-  margin-bottom: 0;
-}
-.favourites-wrapper {
-  font-size: 0.8rem;
-  padding: 10px 20px;
 }
 .sidebar-header{
   display: flex;
   justify-content:flex-end;
 }
-.sidebarM {
+.hide-sidebarM {
   overflow-x: hidden;
   position: absolute;
   width: 280px;
@@ -26,20 +22,42 @@
   background-color: #000;
   z-index: 9999;
   box-shadow: -5px 0px 10px #4a4b4b;
+
+  /* animation: hideSidebarM 0.3s ease 0s 1 normal forwards; */
 }
 .show-sidebarM {
+  overflow-x: hidden;
+  position: absolute;
+  width: 280px;
+  height: 100vh;
   left: calc(100% - 280px);
-  animation-name: showSidebarM;
-  animation-duration: 0.3s;
+  top: 0;
+  background-color: #000;
+  z-index: 9999;
+  box-shadow: -5px 0px 10px #4a4b4b;
+
+  animation: showSidebarM 0.3s ease 0s 1 normal none;
 }
 @keyframes showSidebarM {
-  from {opacity: 0; transform: translateX(500px);}
-  to {opacity: 1; transform: translateX(0);}
+  0% {
+		opacity: 0;
+		transform: translateX(500px);
+	}
+
+	100% {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+@keyframes hideSidebarM {
+	0% {
+		opacity: 1;
+		transform: translateX(500px);
+	}
+
+	100% {
+		opacity: 0;
+		transform: translateX(1000px);
+	}
 }
 
-.burger-menu{
-  position: absolute;
-  left: calc(100% - 72px);
-  top: 1%;
-  cursor: pointer;
-}

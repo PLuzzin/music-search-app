@@ -10,7 +10,10 @@
   max-width: 400px;
 }
 .login-btn-wrapper {
+  min-width: 180px;
+
   display: flex;
+  flex-direction: row;
   align-items: center;
 }
 .header-wrapper > a {

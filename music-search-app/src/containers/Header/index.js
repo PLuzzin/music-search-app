@@ -2,6 +2,9 @@ import React from 'react';
 
 import './header.css';
 
+import { ButtonPrimary } from '../../components/Button/button';
+import { ButtonLink } from '../../components/Button/button';
+
 import { GoSearch } from 'react-icons/go';
 
 
@@ -21,15 +24,10 @@ function Header({ isMobile }) {
           </span>
         </div>
         <div 
-          id="loginBtn" 
           className={`${isMobile ? "d-none" : "d-block"} login-btn-wrapper`}
         >
-          <button type="button" className="btn-signup btn btn-link">
-            Sign up
-          </button>
-          <button type="button" className="btn btn-primary">
-            Log in
-          </button>
+          <ButtonLink value="Sign up" />
+          <ButtonPrimary value="Log in" />
         </div>
       </div>
     </>

@@ -46,36 +46,13 @@ footer{
 .svg-icons {
   font-size: 16px;
 }
-
-
-
-/* Buttons */
-.btn {
-  text-transform: none;
-  font-size: 0.8rem;
-}
-.btn-primary {
-  background-color: #ffffff;
-  color: #333;
-  border-radius: 1.5rem;
-}
-.btn-primary.focus, .btn-primary:focus, .btn-primary:hover {
-  background-color: #e5e5e5!important;
-  color: #333;
-}
-.btn-link {
-  color: #c9c9c9!important;
-  border-radius: 1.5rem;
-}
-.btn-link.focus, .btn-link:focus, .btn-link:hover {
-  color: #fff!important;
-}
 .text-white {
   color: #c9c9c9!important;
 }
 .text-white:hover {
   color: #fff!important;
 }
+
 
 
 /* Forms */

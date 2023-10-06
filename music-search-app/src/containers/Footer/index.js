@@ -5,9 +5,9 @@ import './footer.css';
 function Footer() {
   return (
     <>
-      <div class="card-wrapper">
-          <div class="footer-wrapper">
-            <div class="text-center">
+      <div className="card-wrapper">
+          <div className="footer-wrapper">
+            <div className="text-center">
                 © 2023 Copyright - BoomBox
             </div>
           </div>
