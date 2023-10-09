@@ -1,8 +1,11 @@
+import React, { useState, useEffect } from 'react';
 import { useResponsive } from './services/utils';
 
 import "./assets/css/mdb.dark.min.css";
 import "./App.css";
 import "./global.css";
+
+import api from './services/api';
 
 import Header from './containers/Header';
 import Sidebar from './containers/Sidebar';
@@ -10,28 +13,50 @@ import SidebarMobile from './containers/SidebarMobile';
 import Content from './containers/Content';
 import Footer from './containers/Footer';
 
-// import logo from './logo.svg';
-
 
 function App() {
   // eslint-disable-next-line
   const { isMobile, isTablet, isDesktop } = useResponsive();
+  const [items, setItems] = useState([]);
+
+  const [search, setSearch] = useState('');
+
+  useEffect(() => {
+    async function loadSearchResults(){
+      const response = await api.get('/users');
+      setItems(response.data);
+
+      // console.log(response.data)
+    }
+
+    // chamar funcao
+    loadSearchResults();
+    
+    // eslint-disable-next-line
+  }, []);
+  
   
   return (
     <main>
       <header>
         <Header isMobile={isMobile} />
+        <input
+          type="search"
+          className="form-control rounded"
+          placeholder="What do you want to listen to?"
+          onChange={(e) => {
+            setSearch(e.target.value);
+            console.log(search);
+          }}
+        />
       </header>
-
       <aside>
         <Sidebar />
         <SidebarMobile isMobile={isMobile} />
       </aside>
-
       <article>
-        <Content />
+        <Content items={items} search={search} />
       </article>
-
       <footer>
           <Footer />
       </footer>
