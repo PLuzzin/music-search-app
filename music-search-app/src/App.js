@@ -18,37 +18,27 @@ function App() {
   // eslint-disable-next-line
   const { isMobile, isTablet, isDesktop } = useResponsive();
   const [items, setItems] = useState([]);
-
   const [search, setSearch] = useState('');
 
   useEffect(() => {
     async function loadSearchResults(){
       const response = await api.get('/users');
       setItems(response.data);
-
       // console.log(response.data)
     }
-
     // chamar funcao
     loadSearchResults();
-    
     // eslint-disable-next-line
   }, []);
-  
+
+  const handleSearchChange = (newSearch) => {
+    setSearch(newSearch);
+  }
   
   return (
     <main>
       <header>
-        <Header isMobile={isMobile} />
-        <input
-          type="search"
-          className="form-control rounded"
-          placeholder="What do you want to listen to?"
-          onChange={(e) => {
-            setSearch(e.target.value);
-            console.log(search);
-          }}
-        />
+        <Header isMobile={isMobile} onSearchChange={handleSearchChange} />
       </header>
       <aside>
         <Sidebar />
