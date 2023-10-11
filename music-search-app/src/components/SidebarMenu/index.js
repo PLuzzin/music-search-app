@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 
 import './sidebar_menu.css';
 
@@ -11,24 +12,25 @@ function SidebarMenu() {
     <div className="left-nav">
       <ul>
         <li>
-          <a href="index.html" className="btn btn-link">
+          <Link to="/home" className="btn btn-link">
             <GoHome className="svg-icons" />
             <span className="ms-2">Home</span> 
-          </a>
+          </Link>
         </li>
         <li>
-          <a href="index.html" className="btn btn-link">
+          <Link to="/home" className="btn btn-link">
             <GoSearch className="svg-icons" />
             <span className="ms-2">Search</span>
-          </a>
+          </Link>
         </li>
         <li>
-          <a href="favourites.html" className="btn btn-link">
+          <Link to="/favourites" className="btn btn-link">
             <GoHeartFill className="svg-icons" />
             <span className="ms-2">Your Favourites</span>
-          </a>
+          </Link>
         </li>
       </ul>
+      
     </div>
   );
 }

@@ -22,7 +22,7 @@ function App() {
 
   useEffect(() => {
     async function loadSearchResults(){
-      const response = await api.get(`/search?term=${search}&limit=20`);
+      const response = await api.get(`/search?term=${search}&entity=song&limit=20`);
       setItems(response.data);
     }
     // chamar funcao
