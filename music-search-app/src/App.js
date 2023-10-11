@@ -22,14 +22,13 @@ function App() {
 
   useEffect(() => {
     async function loadSearchResults(){
-      const response = await api.get('/users');
+      const response = await api.get(`/search?term=${search}&limit=20`);
       setItems(response.data);
-      // console.log(response.data)
     }
     // chamar funcao
     loadSearchResults();
-    // eslint-disable-next-line
-  }, []);
+    
+  }, [search]);
 
   const handleSearchChange = (newSearch) => {
     setSearch(newSearch);
