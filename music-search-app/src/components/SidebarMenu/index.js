@@ -1,24 +1,22 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import './sidebar_menu.css';
 
-import { GoSearch } from 'react-icons/go';
-import { GoHome } from 'react-icons/go';
-import { GoHeartFill } from 'react-icons/go';
+import { GoSearch, GoHome, GoHeartFill } from 'react-icons/go';
 
 function SidebarMenu() {
   return (
     <div className="left-nav">
       <ul>
         <li>
-          <Link to="/home" className="btn btn-link">
+          <Link to="/" className="btn btn-link">
             <GoHome className="svg-icons" />
             <span className="ms-2">Home</span> 
           </Link>
         </li>
         <li>
-          <Link to="/home" className="btn btn-link">
+          <Link to="/" className="btn btn-link">
             <GoSearch className="svg-icons" />
             <span className="ms-2">Search</span>
           </Link>

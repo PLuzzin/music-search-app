@@ -3,7 +3,7 @@ import React from 'react';
 // import { Container } from './styles';
 
 function Favourites() {
-  return <div />;
+  return <h1>Favourites</h1>;
 }
 
 export default Favourites;
