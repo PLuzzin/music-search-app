@@ -32,7 +32,28 @@
   height: 100px;
   border-radius: 2px;
 }
-.grid-item > .img-align > .play-song {
+.grid-item > .img-align > button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 100px;
+  height: 100px;
+  color: #ffffff;
+  font-size: 2rem;
+  border-radius: 2px;
+  border: 0;
+  background-color: #000000;
+  position: absolute;
+  opacity: 0;
+  z-index: 2;
+  cursor: pointer;
+  transition: opacity 0.3s;
+}
+.grid-item > .img-align > button:hover {
+  opacity: 0.7;
+}
+/* .grid-item > .img-align > .play-song {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -49,7 +70,7 @@
 }
 .grid-item > .img-align > .play-song:hover {
   opacity: 0.7;
-}
+} */
 .grid-item > .title {
   display: flex;
   justify-content: space-between;
@@ -63,15 +84,11 @@
 .grid-item > .title > .heart-empty {
   width:17px; 
   height:17px; 
-  /* background-image:url('../images/heart-outline-1.svg');
-  background-repeat: no-repeat; */
   cursor: pointer;
 }
 .grid-item > .title > .heart-full {
   width:17px; 
   height:17px; 
-  /* background-image:url('../images/heart-bold-1.svg');
-  background-repeat: no-repeat; */
   cursor: pointer;
 }
 .grid-item > .description {

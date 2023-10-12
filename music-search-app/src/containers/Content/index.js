@@ -3,8 +3,9 @@ import React from "react";
 import "./content.css";
 
 import { GoHeart, GoHeartFill } from "react-icons/go";
+import { BsFillPlayCircleFill } from "react-icons/bs";
 
-function Content({ items, addFavourites, toggleFavourites }) {
+function Content({ items, addFavourites, toggleFavourites, handleOpenTrack }) {
 
   return (
     <>
@@ -21,7 +22,8 @@ function Content({ items, addFavourites, toggleFavourites }) {
                   <div key={item.trackId} id="gridResults">
                     <div className="grid-item">
                       <div className="img-align">
-                        <img src={item.artworkUrl100} alt="" />
+                        <button onClick={() => handleOpenTrack(item.previewUrl)}><BsFillPlayCircleFill /></button>
+                        <img src={item.artworkUrl100} alt="track cover" />
                       </div>
                       <div className="title">
                         <span className="text-h1">{item.artistName}</span>

@@ -15,13 +15,15 @@ import Content from "./containers/Content";
 import Favourites from "./containers/Favourites";
 import Footer from "./containers/Footer";
 
+import Modal from "./components/Modal/modal";
+
 function Main() {
   // eslint-disable-next-line
   const { isMobile, isTablet, isDesktop } = useResponsive();
   const [items, setItems] = useState([]);
-  const [search, setSearch] = useState("");
-
   const [addFavourites, setAddFavourites] = useState([]);
+  const [search, setSearch] = useState("");
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
     async function loadSearchResults() {
@@ -29,6 +31,7 @@ function Main() {
         `/search?term=${search}&entity=song&limit=20`
       );
       setItems(response.data);
+      // console.log(response.data);
     }
     // chamar funcao
     loadSearchResults();
@@ -38,9 +41,16 @@ function Main() {
     setSearch(newSearch);
   };
 
-  // const handleClick = () => {
-  //   console.log("parent click");
-  // };
+  const handleOpenTrack = (previewUrl) => {
+    
+    if (isModalOpen) {
+      setIsModalOpen(false);
+    }
+    setIsModalOpen(true);
+
+    
+  };
+  
 
   const toggleFavourites = (fav_id) => {
     // check if the item already exists on the array
@@ -53,7 +63,9 @@ function Main() {
       );
     } else {
       // if item is not on the Array, add item.
-      const selectedItem = items.results.find((item) => item.trackId === fav_id);
+      const selectedItem = items.results.find(
+        (item) => item.trackId === fav_id
+      );
       if (selectedItem) {
         setAddFavourites((prevFavourites) => [...prevFavourites, selectedItem]);
       }
@@ -66,24 +78,35 @@ function Main() {
         <Route
           path="/"
           element={
-            <main>
-              <header>
-                <Header
-                  isMobile={isMobile}
-                  onSearchChange={handleSearchChange}
-                />
-              </header>
-              <aside>
-                <Sidebar />
-                <SidebarMobile isMobile={isMobile} />
-              </aside>
-              <article>
-                <Outlet />
-              </article>
-              <footer>
-                <Footer />
-              </footer>
-            </main>
+            <>
+              <main>
+                <header>
+                  <Header
+                    isMobile={isMobile}
+                    onSearchChange={handleSearchChange}
+                  />
+                </header>
+                <aside>
+                  <Sidebar />
+                  <SidebarMobile isMobile={isMobile} />
+                </aside>
+                <article>
+                  <Outlet />
+                </article>
+                <footer>
+                  <Footer />
+                </footer>
+              </main>
+              <div id="modal" className={isModalOpen ? "d-block" : "d-none"}>
+                <Modal
+                  setIsModalOpen={setIsModalOpen}
+                  handleOpenTrack={handleOpenTrack}
+                >
+                  <audio src={handleOpenTrack} autoPlay controls></audio>
+                  {/* <audio src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/08/4a/f2/084af288-c282-6180-f1a0-5afe690397eb/mzaf_14098384151162283112.plus.aac.p.m4a" controls /> */}
+                </Modal>
+              </div>
+            </>
           }
         >
           <Route
@@ -93,6 +116,7 @@ function Main() {
                 items={items}
                 addFavourites={addFavourites}
                 toggleFavourites={toggleFavourites}
+                handleOpenTrack={handleOpenTrack}
               />
             }
           />

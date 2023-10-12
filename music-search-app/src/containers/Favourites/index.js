@@ -3,6 +3,7 @@ import React from "react";
 import "./favourites.css";
 
 import { GoHeart, GoHeartFill } from "react-icons/go";
+import { BsFillPlayCircleFill } from "react-icons/bs";
 
 function Favourites({ items, addFavourites, toggleFavourites }) {
 
@@ -21,6 +22,7 @@ function Favourites({ items, addFavourites, toggleFavourites }) {
                   <div key={item.trackId} id="gridResults">
                     <div className="grid-item">
                       <div className="img-align">
+                        <span className="play-song"><BsFillPlayCircleFill /></span>
                         <img src={item.artworkUrl100} alt="" />
                       </div>
                       <div className="title">

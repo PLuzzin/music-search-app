@@ -1,0 +1,48 @@
+/* modal */
+#modal {
+  /* display: none; */
+  position: fixed;
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.modal-content {
+  background-color: #282828;
+  margin: 10% auto;
+  padding: 0;
+  border: 1px solid #282828;
+  width: 80%;
+  animation-name: modalopen;
+  animation-duration: 0.3s;
+}
+@keyframes modalopen {
+  from {opacity: 0; transform: translateY(-50px);}
+  to {opacity: 1; transform: translateY(0);}
+}
+.content-align {
+  display: flex;
+  flex-direction: column;
+}
+.content-align > audio {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 10px;
+}
+.close {
+  display: flex;
+  justify-content: flex-end;
+  color: rgb(230, 230, 230);
+  font-size: 28px;
+  font-weight: 300;
+}
+.close:hover,
+.close:focus {
+  color: #c9c9c9;
+  text-decoration: none;
+  cursor: pointer;
+}
