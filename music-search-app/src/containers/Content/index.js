@@ -1,30 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 
 import "./content.css";
 
 import { GoHeart, GoHeartFill } from "react-icons/go";
 
-function Content({ items, search }) {
-  const [addFavourites, setAddFavourites] = useState([]);
-
-  const toggleFavourites = (fav_id) => {
-    // check if the item already exists on the array
-    const isFavourite = addFavourites.some((item) => item.trackId === fav_id);
-
-    // if item already exists, remove it
-    if (isFavourite) {
-      setAddFavourites((prevFavourites) =>
-        prevFavourites.filter((item) => item.trackId !== fav_id)
-      );
-    } else {
-      // if item is not on the Array, add item.
-      const selectedItem = items.results.find((item) => item.trackId === fav_id);
-      if (selectedItem) {
-        setAddFavourites((prevFavourites) => [...prevFavourites, selectedItem]);
-      }
-    }
-    console.log(addFavourites);
-  };
+function Content({ items, addFavourites, toggleFavourites }) {
 
   return (
     <>
