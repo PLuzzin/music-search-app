@@ -1,7 +1,8 @@
 /* header */
 .header-wrapper {
   display: flex;
-  justify-content: space-between;
+
+  height: 57px;
   align-items: center;
   padding: 10px 20px;
   background-color: #191919;

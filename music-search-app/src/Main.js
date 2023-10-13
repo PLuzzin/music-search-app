@@ -24,6 +24,7 @@ function Main() {
   const [addFavourites, setAddFavourites] = useState([]);
   const [search, setSearch] = useState("");
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [audioSrc, setAudioSrc] = useState('');
 
   useEffect(() => {
     async function loadSearchResults() {
@@ -42,13 +43,11 @@ function Main() {
   };
 
   const handleOpenTrack = (previewUrl) => {
-    
     if (isModalOpen) {
       setIsModalOpen(false);
     }
     setIsModalOpen(true);
-
-    
+    setAudioSrc(previewUrl);
   };
   
 
@@ -101,9 +100,9 @@ function Main() {
                 <Modal
                   setIsModalOpen={setIsModalOpen}
                   handleOpenTrack={handleOpenTrack}
+                  setAudioSrc={setAudioSrc}
                 >
-                  <audio src={handleOpenTrack} autoPlay controls></audio>
-                  {/* <audio src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/08/4a/f2/084af288-c282-6180-f1a0-5afe690397eb/mzaf_14098384151162283112.plus.aac.p.m4a" controls /> */}
+                  <audio src={audioSrc} autoPlay controls></audio>
                 </Modal>
               </div>
             </>
@@ -127,6 +126,7 @@ function Main() {
                 items={items}
                 addFavourites={addFavourites}
                 toggleFavourites={toggleFavourites}
+                handleOpenTrack={handleOpenTrack}
               />
             }
           />

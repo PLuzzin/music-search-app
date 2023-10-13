@@ -1,12 +1,10 @@
 import React from "react";
 
+import RenderTrackList from "../../components/RenderTrackList";
+
 import "./content.css";
 
-import { GoHeart, GoHeartFill } from "react-icons/go";
-import { BsFillPlayCircleFill } from "react-icons/bs";
-
 function Content({ items, addFavourites, toggleFavourites, handleOpenTrack }) {
-
   return (
     <>
       <div id="ContentList" className="card-wrapper">
@@ -19,33 +17,12 @@ function Content({ items, addFavourites, toggleFavourites, handleOpenTrack }) {
           {Array.isArray(items.results)
             ? items.results.map((item) => {
                 return (
-                  <div key={item.trackId} id="gridResults">
-                    <div className="grid-item">
-                      <div className="img-align">
-                        <button onClick={() => handleOpenTrack(item.previewUrl)}><BsFillPlayCircleFill /></button>
-                        <img src={item.artworkUrl100} alt="track cover" />
-                      </div>
-                      <div className="title">
-                        <span className="text-h1">{item.artistName}</span>
-                        <span
-                          onClick={() => toggleFavourites(item.trackId)}
-                          className="heart-empty"
-                        >
-                          {addFavourites.some(
-                            (filteredItem) => filteredItem.trackId === item.trackId
-                          ) ? (
-                            <GoHeartFill />
-                          ) : (
-                            <GoHeart />
-                          )}
-                        </span>
-                      </div>
-                      <div className="description">
-                        <span className="track-name">{item.trackName}</span>
-                        <span>{item.collectionName}</span>
-                      </div>
-                    </div>
-                  </div>
+                  <RenderTrackList
+                    item={item}
+                    addFavourites={addFavourites}
+                    toggleFavourites={toggleFavourites}
+                    handleOpenTrack={handleOpenTrack}
+                  />
                 );
               })
             : ""}
